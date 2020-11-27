@@ -1,18 +1,40 @@
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Name</th>
-    <th scope="col">Address</th>
-    <th scope="col">Email</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let resto of restaurantCollection">
-    <td>{{resto.id}}</td>
-    <td>{{ resto.name }}</td>
-    <td>{{ resto.address }}</td>
-    <td>{{ resto.email }}</td>
-  </tr>
-  </tbody>
-</table>
+<div style="margin-top: 40px;">
+  <div class="fa-center" *ngIf="loadingIndicator">
+    <span class="fa fa-2x fa-center"><i class="fa fa-spinner"></i></span>
+  </div>
+  
+  <div *ngIf="!loadingIndicator" class="row">
+    <div class="col" style="display: block;">
+      <div class="widget-title">
+        <h4>All Restaurants</h4>
+      </div>
+    </div>
+    <div class="col">
+      <div class="pull-right">
+        <button class="btn" (click)="refreshGrid()">
+          <i style="font-size: 1.5em;" class="fa fa-refresh"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <table *ngIf="!loadingIndicator" class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Email</th>
+      <th scope="col">Operation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let resto of restaurantCollection">
+      <td>{{resto.id}}</td>
+      <td>{{ resto.name }}</td>
+      <td>{{ resto.address }}</td>
+      <td>{{ resto.email }}</td>
+      <td><i (click)="deleteRestaurant(resto.id)" class="fa fa-trash" style="font-size:20px;color:red;"></i></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

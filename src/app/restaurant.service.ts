@@ -10,4 +10,13 @@ url = 'http://localhost:3000/restaurants';
   getList(){
     return this.http.get(this.url);
   }
+
+  saveRestaurant(data) {
+    console.log("\ndata: \n",data);
+    return this.http.post(this.url, data);
+  }
+
+  deleteRestaurant(id) {
+    return this.http.delete(`${this.url}/${id}`);
+  }
 }

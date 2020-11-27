@@ -1,0 +1,15 @@
+.fa {
+    margin-right: -10px;
+    vertical-align: top;
+  }
+  .fa-text {
+    vertical-align: top;
+  }
+  
+  .fa-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    margin-left: -5px;
+  }
