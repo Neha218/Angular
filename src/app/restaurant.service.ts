@@ -19,4 +19,12 @@ url = 'http://localhost:3000/restaurants';
   deleteRestaurant(id) {
     return this.http.delete(`${this.url}/${id}`);
   }
+
+  getSelectedResturant(id) {
+    return this.http.get(`${this.url}/${id}`);
+  }
+
+  updateResturant(id, data) {
+    return this.http.put(`${this.url}/${id}`,data);
+  }
 }

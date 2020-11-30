@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms'
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 import {RestaurantService} from '../restaurant.service'
 @Component({
   selector: 'app-add-restaurant',
@@ -9,9 +9,9 @@ import {RestaurantService} from '../restaurant.service'
 export class AddRestaurantComponent implements OnInit {
   alert: boolean=false;
   addRestaurant = new FormGroup({
-    name: new FormControl(''),
-    address: new FormControl(''),
-    email: new FormControl('')
+    name: new FormControl('',Validators.required),
+    address: new FormControl('',Validators.required),
+    email: new FormControl('',[Validators.required,Validators.email])
   })
   constructor(private restaurant: RestaurantService) { }
 
@@ -21,7 +21,6 @@ export class AddRestaurantComponent implements OnInit {
   collectRestaurant() {
     this.restaurant.saveRestaurant(this.addRestaurant.value).subscribe((resto) => {
       this.alert=true;
-      console.log("alert: ",this.alert);
       this.addRestaurant.reset({});
     })
   }
@@ -29,5 +28,9 @@ export class AddRestaurantComponent implements OnInit {
   close() {
     this.alert=false;
   }
+
+  get name() {return this.addRestaurant.get('name')}
+  get address() {return this.addRestaurant.get('address')}
+  get email() {return this.addRestaurant.get('email')}
 
 }

@@ -1,15 +1,12 @@
-<ngx-loading-bar></ngx-loading-bar>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">NB's Restaurant</a>
+  <a class="navbar-brand" routerLink=''>NB's Restaurant</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link" routerLink='add'>Add Restaurant</a>
-      <a class="nav-item nav-link" routerLink='update'>Update Restaurant</a>
-      <a class="nav-item nav-link" routerLink='list'>List Restaurant</a>
+      <a class="nav-item nav-link" routerLink=''>List Restaurant</a>
       <a class="nav-item nav-link" routerLink='login'>Login User</a>
       <a class="nav-item nav-link" routerLink='register'>Register User</a>
     </div>
@@ -18,4 +15,7 @@
 
 <div class="container">
   <router-outlet></router-outlet>
+  <footer>
+    <p>Register your restarant with us <span aria-hidden="true">&copy;</span>NB's Resturant</p>
+  </footer>
 </div>
